@@ -1,0 +1,39 @@
+/* Feed Embedder for Substack — admin styles */
+
+.fefs-admin .fefs-tab-panel {
+	max-width: 920px;
+}
+
+.fefs-admin h3 {
+	margin: 1.8em 0 0;
+	padding-bottom: 6px;
+	border-bottom: 1px solid #dcdcde;
+}
+
+.fefs-admin #fefs-preview-spinner {
+	float: none;
+	vertical-align: middle;
+}
+
+.fefs-admin .fefs-shortcode-row code {
+	cursor: pointer;
+	padding: 4px 8px;
+}
+
+.fefs-admin #fefs-copied {
+	color: #00a32a;
+	font-weight: 600;
+	margin-left: 4px;
+}
+
+.fefs-admin #fefs-preview {
+	margin-top: 15px;
+	padding: 20px;
+	background: #fff;
+	border: 1px solid #ccd0d4;
+	border-radius: 4px;
+}
+
+.fefs-admin #fefs-preview .fefs-error {
+	color: #b91c1c;
+}

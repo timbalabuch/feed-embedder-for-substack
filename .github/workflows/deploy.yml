@@ -1,0 +1,25 @@
+name: Deploy to WordPress.org
+
+# Publishes to the WordPress.org SVN repository whenever a version tag is
+# pushed (e.g. `git tag 1.0.1 && git push origin 1.0.1`). The tag name is
+# used as the plugin version. Marketing assets in `.wordpress-org/` are
+# synced to the SVN `assets/` directory.
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  deploy:
+    name: Deploy new version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: WordPress Plugin Deploy
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: feed-embedder-for-substack

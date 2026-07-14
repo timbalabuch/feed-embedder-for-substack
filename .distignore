@@ -1,0 +1,14 @@
+# Files and folders that must NOT ship to WordPress.org users.
+# The deploy action copies everything to SVN trunk except these.
+/.git
+/.github
+/.wordpress-org
+/.gitignore
+/.distignore
+/README.md
+.DS_Store
+Thumbs.db
+*.log
+*.zip
+node_modules
+vendor

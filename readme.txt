@@ -2,8 +2,8 @@
 Contributors: timbalabuch
 Tags: substack, rss, feed, newsletter, embed
 Requires at least: 6.0
-Tested up to: 7.0
-Stable tag: 1.0.0
+Tested up to: 7.1
+Stable tag: 1.0.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -33,14 +33,14 @@ Just paste your Substack address (e.g. `https://example.substack.com`) in the se
 = Usage =
 
 1. Go to **Settings → Feed for Substack**.
-2. Enter your Substack URL in the **Feed** tab and choose how many posts to show.
+2. Enter your Substack or RSS feed URL in the **Feed** tab and choose how many posts to show.
 3. Style the cards in the **Design** tab.
 4. Check the result in the **Preview** tab and copy the shortcode.
 5. Paste `[fefs_feed]` anywhere shortcodes are supported.
 
 = Shortcode attributes =
 
-* `url` — override the Substack URL for that instance.
+* `url` — override the Substack or RSS feed URL for that instance.
 * `count` — override the number of posts (1–20).
 * `layout` — `horizontal` or `vertical`.
 
@@ -56,7 +56,7 @@ Feed Embedder for Substack is an independent, third-party plugin and is not affi
 
 1. Upload the `feed-embedder-for-substack` folder to `/wp-content/plugins/`, or install it directly from the WordPress plugin directory.
 2. Activate the plugin through the **Plugins** menu.
-3. Go to **Settings → Feed for Substack** and enter your Substack URL.
+3. Go to **Settings → Feed for Substack** and enter your Substack or RSS feed URL.
 4. Add the `[fefs_feed]` shortcode to any post or page.
 
 == Frequently Asked Questions ==
@@ -68,6 +68,10 @@ Yes, as long as the publication is public. The plugin reads the public RSS feed 
 = Can I use a non-Substack RSS feed? =
 
 Yes. If you enter a full feed URL (any valid `https://` RSS feed), the plugin will use it as-is. Bare site URLs get `/feed` appended automatically, which matches Substack's convention.
+
+= Can I show Substack Activity or Notes? =
+
+Not currently. It is a good idea, but Substack does not expose Activity or Notes in a way the plugin can reliably use today. If Substack makes that possible in the future, I will definitely look at adding support.
 
 = Does it slow down my site? =
 
@@ -84,16 +88,25 @@ Only the post images (hosted on Substack's CDN). No scripts, iframes or trackers
 == Screenshots ==
 
 1. The vertical grid layout rendered from a Substack feed, shown in the live preview.
-2. Feed settings — Substack URL, number of posts, cache duration and the optional "view more" link.
+2. Feed settings — Substack or RSS feed URL, number of posts, cache duration and the optional "view more" link.
 3. Design tab — layout, card, image, typography and mobile options.
 4. The horizontal layout (image beside text), shown in the live preview.
 
 == Changelog ==
 
+= 1.0.1 =
+* Added a safer excerpt truncation fallback for hosts without the mbstring PHP extension.
+* Clarified that direct RSS feed URLs are supported.
+* Added an FAQ note about Substack Activity and Notes.
+* Added a small WordPress.org review link on the settings page.
+
 = 1.0.0 =
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+Small compatibility and documentation update.
 
 = 1.0.0 =
 Initial release.

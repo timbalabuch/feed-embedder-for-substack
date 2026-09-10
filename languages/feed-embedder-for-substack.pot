@@ -2,7 +2,7 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Feed Embedder for Substack 1.0.0\n"
+"Project-Id-Version: Feed Embedder for Substack 1.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/feed-embedder-for-substack\n"
 "POT-Creation-Date: 2026-07-12T00:00:00+00:00\n"
 "MIME-Version: 1.0\n"
@@ -52,12 +52,20 @@ msgstr ""
 msgid "Preview"
 msgstr ""
 
+#: admin/class-fefs-admin.php:214
+msgid "Enjoying Feed Embedder for Substack? A quick WordPress.org review helps others find it."
+msgstr ""
+
+#: admin/class-fefs-admin.php:215
+msgid "Leave a review"
+msgstr ""
+
 #: admin/class-fefs-admin.php:222
 msgid "You are not allowed to do this."
 msgstr ""
 
 #: admin/class-fefs-admin.php:232
-msgid "Please enter a Substack URL in the Feed tab first."
+msgid "Please enter a Substack or RSS feed URL in the Feed tab first."
 msgstr ""
 
 #: admin/views/design.php:13
@@ -242,7 +250,7 @@ msgid "Title font size on mobile"
 msgstr ""
 
 #: admin/views/preview.php:15
-msgid "No Substack URL configured yet. Enter one in the Feed tab (you can preview it before saving)."
+msgid "No Substack or RSS feed URL configured yet. Enter one in the Feed tab (you can preview it before saving)."
 msgstr ""
 
 #: admin/views/preview.php:20
@@ -262,15 +270,15 @@ msgid "Copy"
 msgstr ""
 
 #: admin/views/preview.php:30
-msgid "Optional attributes: url, count, layout (horizontal | vertical). Example: [substack_feed url=\"https://other.substack.com\" count=\"4\" layout=\"vertical\"]"
+msgid "Optional attributes: url, count, layout (horizontal | vertical). Example: [fefs_feed url=\"https://other.substack.com\" count=\"4\" layout=\"vertical\"]"
 msgstr ""
 
 #: admin/views/settings.php:16
-msgid "Substack URL"
+msgid "Substack or RSS feed URL"
 msgstr ""
 
 #: admin/views/settings.php:22
-msgid "Your public Substack address. The /feed path is added automatically."
+msgid "Enter a public Substack address or a direct RSS feed URL. The /feed path is added automatically for bare Substack addresses."
 msgstr ""
 
 #: admin/views/settings.php:27
@@ -327,7 +335,7 @@ msgid "The feed contains no posts."
 msgstr ""
 
 #: includes/class-fefs-shortcode.php:74
-msgid "No Substack URL configured."
+msgid "No Substack or RSS feed URL configured."
 msgstr ""
 
 #: includes/class-fefs-shortcode.php:80

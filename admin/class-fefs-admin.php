@@ -208,6 +208,11 @@ class FEFS_Admin {
 			<div class="fefs-tab-panel" id="fefs-tab-preview" style="display:none">
 				<?php require FEFS_PLUGIN_DIR . 'admin/views/preview.php'; ?>
 			</div>
+
+			<p class="fefs-review">
+				<?php esc_html_e( 'Enjoying Feed Embedder for Substack? A quick WordPress.org review helps others find it.', 'feed-embedder-for-substack' ); ?>
+				<a href="<?php echo esc_url( fefs_review_url() ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Leave a review', 'feed-embedder-for-substack' ); ?></a>
+			</p>
 		</div>
 		<?php
 	}
@@ -229,7 +234,7 @@ class FEFS_Admin {
 		$design   = wp_parse_args( self::sanitize_design( $raw_design ), fefs_default_design() );
 
 		if ( '' === $settings['url'] ) {
-			wp_send_json_error( array( 'message' => __( 'Please enter a Substack URL in the Feed tab first.', 'feed-embedder-for-substack' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Please enter a Substack or RSS feed URL in the Feed tab first.', 'feed-embedder-for-substack' ) ) );
 		}
 
 		wp_send_json_success(

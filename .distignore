@@ -3,6 +3,7 @@
 /.git
 /.github
 /.wordpress-org
+/tests
 /.gitignore
 /.distignore
 /README.md

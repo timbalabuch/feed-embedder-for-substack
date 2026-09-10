@@ -37,3 +37,12 @@
 .fefs-admin #fefs-preview .fefs-error {
 	color: #b91c1c;
 }
+.fefs-admin .fefs-review {
+	margin-top: 24px;
+	color: #646970;
+	font-size: 13px;
+}
+
+.fefs-admin .fefs-review a {
+	margin-left: 4px;
+}

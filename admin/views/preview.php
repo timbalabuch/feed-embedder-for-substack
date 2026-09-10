@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <?php if ( '' === $settings['url'] ) : ?>
 	<div class="notice notice-warning inline">
-		<p><?php esc_html_e( 'No Substack URL configured yet. Enter one in the Feed tab (you can preview it before saving).', 'feed-embedder-for-substack' ); ?></p>
+		<p><?php esc_html_e( 'No Substack or RSS feed URL configured yet. Enter one in the Feed tab (you can preview it before saving).', 'feed-embedder-for-substack' ); ?></p>
 	</div>
 <?php endif; ?>
 

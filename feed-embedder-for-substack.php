@@ -3,7 +3,7 @@
  * Plugin Name:       Feed Embedder for Substack
  * Plugin URI:        https://wordpress.org/plugins/feed-embedder-for-substack/
  * Description:       Embed your Substack posts feed anywhere with a shortcode. Fully customizable layout and design.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            timbalabuch
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'FEFS_VERSION', '1.0.0' );
+define( 'FEFS_VERSION', '1.0.1' );
 define( 'FEFS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'FEFS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -115,6 +115,44 @@ function fefs_get_design() {
 function fefs_sanitize_css_value( $value ) {
 	$value = sanitize_text_field( (string) $value );
 	return trim( str_replace( array( ';', '{', '}', '<', '>', '"', "'", '\\', '&' ), '', $value ) );
+}
+
+/**
+ * Truncate text safely on hosts with or without mbstring.
+ *
+ * @param string $text   Plain text.
+ * @param int    $length Max characters (0 = no limit).
+ * @return string
+ */
+function fefs_truncate_text( $text, $length ) {
+	$text = trim( html_entity_decode( (string) $text, ENT_QUOTES, 'UTF-8' ) );
+
+	if ( $length < 1 ) {
+		return $text;
+	}
+
+	if ( function_exists( 'mb_strlen' ) && function_exists( 'mb_substr' ) ) {
+		if ( mb_strlen( $text ) <= $length ) {
+			return $text;
+		}
+
+		return rtrim( mb_substr( $text, 0, $length ) ) . '...';
+	}
+
+	if ( strlen( $text ) <= $length ) {
+		return $text;
+	}
+
+	return rtrim( substr( $text, 0, $length ) ) . '...';
+}
+
+/**
+ * Direct WordPress.org review URL.
+ *
+ * @return string
+ */
+function fefs_review_url() {
+	return 'https://wordpress.org/support/plugin/feed-embedder-for-substack/reviews/#new-post';
 }
 
 /**

@@ -13,13 +13,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 <table class="form-table" role="presentation">
 	<tr>
 		<th scope="row">
-			<label for="fefs-url"><?php esc_html_e( 'Substack URL', 'feed-embedder-for-substack' ); ?></label>
+			<label for="fefs-url"><?php esc_html_e( 'Substack or RSS feed URL', 'feed-embedder-for-substack' ); ?></label>
 		</th>
 		<td>
 			<input type="url" id="fefs-url" name="fefs_settings[url]" class="regular-text"
 				value="<?php echo esc_attr( $settings['url'] ); ?>"
 				placeholder="https://example.substack.com" />
-			<p class="description"><?php esc_html_e( 'Your public Substack address. The /feed path is added automatically.', 'feed-embedder-for-substack' ); ?></p>
+			<p class="description"><?php esc_html_e( 'Enter a public Substack address or a direct RSS feed URL. The /feed path is added automatically for bare Substack addresses.', 'feed-embedder-for-substack' ); ?></p>
 		</td>
 	</tr>
 	<tr>

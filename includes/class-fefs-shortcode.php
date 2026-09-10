@@ -71,7 +71,7 @@ class FEFS_Shortcode {
 	 */
 	public static function render_feed( $settings, $design ) {
 		if ( empty( $settings['url'] ) ) {
-			return '<p class="fefs-error">' . esc_html__( 'No Substack URL configured.', 'feed-embedder-for-substack' ) . '</p>';
+			return '<p class="fefs-error">' . esc_html__( 'No Substack or RSS feed URL configured.', 'feed-embedder-for-substack' ) . '</p>';
 		}
 
 		$items = FEFS_Feed_Fetcher::fetch( $settings['url'], $settings['count'], $settings['cache_minutes'] );
@@ -147,12 +147,6 @@ class FEFS_Shortcode {
 	 * @return string
 	 */
 	private static function truncate( $text, $length ) {
-		$text = trim( html_entity_decode( $text, ENT_QUOTES, 'UTF-8' ) );
-
-		if ( $length < 1 || mb_strlen( $text ) <= $length ) {
-			return $text;
-		}
-
-		return rtrim( mb_substr( $text, 0, $length ) ) . '…';
+		return fefs_truncate_text( $text, $length );
 	}
 }

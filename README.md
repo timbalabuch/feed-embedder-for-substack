@@ -21,7 +21,7 @@ Embed the latest posts from any public [Substack](https://substack.com) newslett
 ## Usage
 
 1. Go to **Settings → Feed for Substack**.
-2. Enter your Substack URL (e.g. `https://example.substack.com`) and choose how many posts to show.
+2. Enter your Substack or RSS feed URL (e.g. `https://example.substack.com`) and choose how many posts to show.
 3. Style the cards in the **Design** tab and check the **Preview** tab.
 4. Paste `[fefs_feed]` anywhere shortcodes are supported.
 
@@ -29,7 +29,7 @@ Embed the latest posts from any public [Substack](https://substack.com) newslett
 
 | Attribute | Description |
 | --------- | ----------- |
-| `url`     | Override the Substack URL for that instance. |
+| `url`     | Override the Substack or RSS feed URL for that instance. |
 | `count`   | Override the number of posts (1–20). |
 | `layout`  | `horizontal` or `vertical`. |
 

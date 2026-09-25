@@ -3,7 +3,7 @@ Contributors: timbalabuch
 Tags: substack, rss, feed, newsletter, embed
 Requires at least: 6.0
 Tested up to: 7.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -94,6 +94,9 @@ Only the post images (hosted on Substack's CDN). No scripts, iframes or trackers
 
 == Changelog ==
 
+= 1.0.2 =
+* Fixed: Design settings were not applied on the front end with block themes (such as Twenty Twenty-Four and Twenty Twenty-Five).
+
 = 1.0.1 =
 * Added a safer excerpt truncation fallback for hosts without the mbstring PHP extension.
 * Clarified that direct RSS feed URLs are supported.
@@ -104,6 +107,9 @@ Only the post images (hosted on Substack's CDN). No scripts, iframes or trackers
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+Fixes design settings not applying on block themes.
 
 = 1.0.1 =
 Small compatibility and documentation update.

@@ -3,7 +3,7 @@
  * Plugin Name:       Feed Embedder for Substack
  * Plugin URI:        https://wordpress.org/plugins/feed-embedder-for-substack/
  * Description:       Embed your Substack posts feed anywhere with a shortcode. Fully customizable layout and design.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            timbalabuch
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'FEFS_VERSION', '1.0.1' );
+define( 'FEFS_VERSION', '1.0.2' );
 define( 'FEFS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'FEFS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -166,11 +166,16 @@ add_action( 'init', 'fefs_init' );
 /**
  * Register a src-less style handle used to attach the dynamically
  * generated CSS via wp_add_inline_style().
+ *
+ * Registered on init (not wp_enqueue_scripts) because block themes render
+ * the page content, and therefore the shortcode, before wp_head runs.
  */
 function fefs_register_style() {
-	wp_register_style( 'fefs-feed', false, array(), FEFS_VERSION );
+	if ( ! wp_style_is( 'fefs-feed', 'registered' ) ) {
+		wp_register_style( 'fefs-feed', false, array(), FEFS_VERSION );
+	}
 }
-add_action( 'wp_enqueue_scripts', 'fefs_register_style' );
+add_action( 'init', 'fefs_register_style' );
 
 if ( is_admin() ) {
 	require_once FEFS_PLUGIN_DIR . 'admin/class-fefs-admin.php';

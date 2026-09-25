@@ -49,14 +49,15 @@ class FEFS_Shortcode {
 			$design['orientation'] = $atts['layout'];
 		}
 
+		fefs_register_style();
 		wp_enqueue_style( 'fefs-feed' );
 
 		// The generated CSS depends only on the (global) design option, so
 		// emit it once even if several shortcodes appear on the same page.
+		// Only mark it as added when WordPress actually accepted it.
 		static $css_added = false;
 		if ( ! $css_added ) {
-			wp_add_inline_style( 'fefs-feed', FEFS_CSS_Generator::generate( $design ) );
-			$css_added = true;
+			$css_added = wp_add_inline_style( 'fefs-feed', FEFS_CSS_Generator::generate( $design ) );
 		}
 
 		return self::render_feed( $settings, $design );
